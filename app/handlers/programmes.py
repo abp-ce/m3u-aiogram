@@ -18,7 +18,7 @@ BASE_URL = settings.backend_host + "/telebot/"
 
 @router.message(F.text == 'По категориям')
 async def categories(message: Message):
-    r = httpx.get(BASE_URL + 'categories')
+    r = httpx.get(BASE_URL + 'categories/')
     await message.answer("Выберите категорию",
                          reply_markup=get_list_kb(r.json(), 'categories'))
 
