@@ -8,7 +8,6 @@ from app.config import settings
 from app.handlers import locations, menu, programmes
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 
 async def main() -> None:

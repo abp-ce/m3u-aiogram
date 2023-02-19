@@ -45,8 +45,8 @@ def get_time_kb(ch_id: str, start: datetime,
     ))
     kb.button(text='Сейчас', callback_data=ProgrammeCF(
         action='time',
-        ch_id=ch_id,
-        dt=datetime.now(tz=timezone.utc).timestamp()
+        ch_id=ch_id
+        # dt=datetime.now(tz=timezone.utc).timestamp()
     ))
     kb.button(text='Далее', callback_data=ProgrammeCF(
         action='time',

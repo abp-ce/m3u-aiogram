@@ -9,7 +9,7 @@ class ListCF(CallbackData, prefix='list'):
 class ProgrammeCF(CallbackData, prefix='prog'):
     action: str
     ch_id: str
-    dt: float
+    dt: float | None = None
 
 
 class TimezoneCF(CallbackData, prefix='tz'):

@@ -52,10 +52,11 @@ async def callback_time(
         callback_data: ProgrammeCF,
         state: FSMContext
 ):
-    time_str = datetime.fromtimestamp(float(callback_data.dt)).isoformat()
-    r = httpx.get(
-        BASE_URL + f'programme/{callback_data.ch_id}?dt={time_str}'
-    )
+    url = BASE_URL + f"programme/{callback_data.ch_id}"
+    if callback_data.dt:
+        tm = datetime.utcfromtimestamp(float(callback_data.dt)).isoformat()
+        url += f"?dt={tm}"
+    r = httpx.get(url)
     await answer_programme(r.json(), callback_data.ch_id,
                            callback.message, state)
 
